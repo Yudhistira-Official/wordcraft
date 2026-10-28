@@ -199,7 +199,7 @@ pub(super) fn indent_shapes(first: f32, left: f32, right: f32, bar: Rect) -> Ind
 pub(super) fn indent_marker_rects(first: f32, left: f32, right: f32, bar: Rect) -> [Rect; 3] {
     let s = indent_shapes(first, left, right, bar);
     let bounds = |points: &[Pos2]| points.iter().fold(Rect::NOTHING, |r, p| r.union(Rect::from_center_size(*p, egui::Vec2::ZERO)));
-    [bounds(&s.first), bounds(&s.hanging).union(s.left_box), bounds(&s.right)]
+    [bounds(&s.first), bounds(&s.hanging).union(s.left_box).union(bounds(&s.join)), bounds(&s.right)]
 }
 
 /// Show an indent drag's position beside its marker, as Word does: a small tab under the ruler

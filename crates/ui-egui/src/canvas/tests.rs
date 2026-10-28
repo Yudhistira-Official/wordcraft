@@ -4883,6 +4883,7 @@ fn the_indent_markers_draw_word_shapes_and_their_rects_match() {
     assert!(inside(rects[2], &j.right), "the right rect covers its triangle");
     assert_eq!((rects[0].min.y, rects[0].max.y), (bar.min.y, bar.min.y + INDENT_HEAD_H));
     assert_eq!(rects[1].max.y, bar.max.y + INDENT_BOX_DROP);
+    assert!(inside(rects[1], &j.join), "the left rect covers the joining arm too");
 
     assert_eq!(snapped_indent(100.0, false), 99.0);
     assert_eq!(snapped_indent(100.0, true), 100.0, "free keeps the pointer's value");
