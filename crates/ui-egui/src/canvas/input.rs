@@ -2,7 +2,7 @@ use super::balloons::over_balloon;
 use super::links::{field_showing_code, is_followable_link, is_generated_bookmark_link, link_under};
 use super::navigation::page_at;
 use super::story::{enters_header_footer, in_text_box, part_kind, text_box_host};
-use super::{CanvasState, DocLayout, PartKind, Pos, Pos2, Rect, StoryRef, Ui, WordApp, json};
+use super::{CanvasState, DocLayout, LabelDrag, ListLevel, PartKind, Pos, Pos2, Rect, StoryRef, Ui, WordApp, json, move_level};
 
 /// Drag-select auto-scroll (#688): the pointer within this many points of the viewport's edge
 /// starts scrolling, like Word.
